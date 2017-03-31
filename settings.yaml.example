@@ -1,0 +1,4 @@
+---
+default:
+  cpus: 2
+  mem: 4
