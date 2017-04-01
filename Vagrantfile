@@ -20,4 +20,12 @@ Vagrant.configure('2') do |config|
     vb.memory = settings['mem_bytes']
     vb.gui = true
   end
+
+  ansible_cmd =
+    'cd /vagrant/provision && ' +
+    'ansible-playbook -c local -i localhost, -l localhost vm.yaml'
+
+  config.vm.provision 'file', source: 'provision/bootstrap.sh', destination: '/var/tmp/bootstrap.sh'
+  config.vm.provision 'shell', inline: '/bin/bash /var/tmp/bootstrap.sh', privileged: true
+  config.vm.provision 'shell', inline: ansible_cmd, privileged: true
 end
