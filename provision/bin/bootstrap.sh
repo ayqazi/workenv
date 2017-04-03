@@ -13,5 +13,6 @@ if [[ "$(id -un)" = vagrant && "$(user_uid vagrant)" = 1000 ]] ; then
         echo 'Continue provisioning (vagrant provision) after reboot'
         sudo cp /vagrant/provision/bin/change-default-user.sh /etc/rc.local
 else
-        echo 'user change not required'
+        echo 'Installing foundation packages, and provisioning'
+        sudo -H "$(dirname ${0})/install-foundation.sh"
 fi
