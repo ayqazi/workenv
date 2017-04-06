@@ -1,0 +1,9 @@
+---
+- name: 'Install gui packages'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - i3
+    - x11-utils
+    - x11-apps
+    - x11-session-utils
+    - xinit
