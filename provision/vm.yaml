@@ -3,4 +3,5 @@
   become: true
   roles:
     - { role: base }
+    - { role: main-user, name: ayqazi, uid: 1000, gid: 1000, homedir: /home/ayqazi }
     - { role: gui }

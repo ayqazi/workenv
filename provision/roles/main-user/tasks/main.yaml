@@ -1,0 +1,3 @@
+---
+- name: 'Create user dir'
+  file: { name: "{{ homedir }}", state: directory, owner: "{{ uid }}", group: "{{ gid }}", mode: 0770 }
