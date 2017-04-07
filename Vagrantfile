@@ -19,6 +19,18 @@ Vagrant.configure('2') do |config|
     vb.cpus = settings['cpus']
     vb.memory = settings['mem_bytes']
     vb.gui = true
+
+    [
+      %w{--clipboard bidirectional},
+      %w{--chipset ich9},
+      %w{--mouse ps2},
+      %w{--vram 128},
+      %w{--accelerate3d on},
+      %w{--vrde off},
+      %w{--audiocontroller hda},
+    ].each do |option, value|
+      vb.customize ['modifyvm', :id, option, value]
+    end
   end
 
   config.vm.provision 'shell', inline: 'exec /vagrant/provision/bin/bootstrap.sh', privileged: false
