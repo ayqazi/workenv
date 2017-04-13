@@ -1,0 +1,11 @@
+
+- name: 'Install essential packages'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - debconf-utils         # Diagnostics via debconf-get-selections
+    - python-pycurl         # Needed by Ansible for URL fetching
+
+- name: 'Install essential system utilities'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - dmidecode             # Used by box-type script

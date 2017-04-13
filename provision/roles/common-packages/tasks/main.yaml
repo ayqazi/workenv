@@ -1,0 +1,54 @@
+---
+- name: 'Add repos for latest development packages'
+  apt_repository: { repo: "{{ item }}", mode: 644, state: present }
+  with_items:
+    - ppa:webupd8team/java
+    - ppa:git-core/ppa
+
+- name: 'Accept licenses'
+  debconf:
+    name: '*'
+    question: "{{ item }}"
+    value: true
+    vtype: select
+  with_items:
+    - shared/accepted-oracle-license-v1-1
+    - msttcorefonts/accepted-mscorefonts-eula
+
+- name: 'Install commonly used packages'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - build-essential
+    - libssl-dev
+    - libreadline-dev
+    - zlib1g-dev
+    - libxml2-dev
+    - libxslt1-dev
+    - libffi-dev
+    - openjdk-8-jdk
+    - libyaml-dev
+    - sqlite3
+    - libgdbm-dev
+    - libncurses5-dev
+    - bison
+    - libffi-dev
+    - linux-tools-generic
+    - libmath-round-perl # needed by ayqpw
+    - pkg-config
+
+    - git
+    - emacs24
+    - emacs24-el
+    - emacs-goodies-el
+
+    - schedtool
+    - pbzip2
+    - pv
+    - dstat
+    - nethogs
+    - jq
+    - netcat-traditional
+
+    - openssh-client
+    - openssh-server
+    - openssh-blacklist-extra

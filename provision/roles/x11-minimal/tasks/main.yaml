@@ -1,0 +1,9 @@
+---
+- name: 'Install minimal X11 packages'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - x11-utils
+    - x11-apps
+    - x11-session-utils
+    - x11-xserver-utils
+    - xinit

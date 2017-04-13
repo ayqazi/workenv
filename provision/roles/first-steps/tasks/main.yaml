@@ -1,0 +1,9 @@
+---
+- name: 'Add partner repo'
+  apt_repository:
+    repo: "deb http://archive.canonical.com/ubuntu {{ ubuntu_distribution }} partner"
+    mode: 0644
+    state: present
+
+- name: 'Upgrade all packages'
+  apt: { update_cache: yes, upgrade: dist }
