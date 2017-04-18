@@ -1,2 +1,3 @@
 ---
 ubuntu_distribution: xenial
+mirror_country_code: gb
