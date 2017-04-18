@@ -2,4 +2,16 @@
 - name: 'Install gui packages'
   apt: { name: "{{ item }}", state: latest }
   with_items:
+    - fonts-dejavu-core
+    - fonts-dejavu-extra
     - i3
+    - mate-settings-daemon
+
+- name: 'Add i3 config dir'
+  file:
+    name: "{{ main_user_homedir }}/.config/i3"
+    owner: "{{ main_user_uid }}"
+    group: "{{ main_user_gid }}"
+    mode: 0755
+    state: directory
+    recurse: true
