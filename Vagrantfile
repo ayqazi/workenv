@@ -20,16 +20,16 @@ Vagrant.configure('2') do |config|
     vb.memory = settings['mem_bytes']
     vb.gui = true
 
-    [
-      %w{--clipboard bidirectional},
-      %w{--chipset ich9},
-      %w{--mouse ps2},
-      %w{--vram 128},
-      %w{--accelerate3d on},
-      %w{--vrde off},
-      %w{--audiocontroller hda},
-    ].each do |option, value|
-      vb.customize ['modifyvm', :id, option, value]
+    {
+      clipboard: :bidirectional,
+      chipset: :ich9,
+      mouse: :ps2,
+      vram: 128,
+      accelerate3d: :on,
+      vrde: :off,
+      audiocontroller: :hda,
+    }.each do |option, value|
+      vb.customize ['modifyvm', :id, "--#{option}", value]
     end
   end
 
