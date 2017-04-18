@@ -15,10 +15,16 @@
     - shared/accepted-oracle-license-v1-1
     - msttcorefonts/accepted-mscorefonts-eula
 
-- name: 'Install commonly used packages'
+- name: 'Install commonly used requirements for building other packages'
   apt: { name: "{{ item }}", state: latest }
   with_items:
     - build-essential
+    - bison
+    - pkg-config
+
+- name: 'Install commonly used development libraries'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
     - libssl-dev
     - libreadline-dev
     - zlib1g-dev
@@ -30,17 +36,12 @@
     - sqlite3
     - libgdbm-dev
     - libncurses5-dev
-    - bison
     - libffi-dev
-    - linux-tools-generic
     - libmath-round-perl # needed by ayqpw
-    - pkg-config
 
-    - git
-    - emacs24
-    - emacs24-el
-    - emacs-goodies-el
-
+- name: 'Install commonly used packages'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
     - schedtool
     - pbzip2
     - pv
@@ -48,7 +49,14 @@
     - nethogs
     - jq
     - netcat-traditional
-
     - openssh-client
     - openssh-server
     - openssh-blacklist-extra
+
+- name: 'Install tools used for development'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - git
+    - emacs24
+    - emacs24-el
+    - emacs-goodies-el
