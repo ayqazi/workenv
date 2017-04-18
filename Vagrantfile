@@ -3,6 +3,7 @@ require 'yaml'
 settings = {
   'cpus' => 1,
   'mem' => 2,
+  'monitors' => 1,
 }
 
 if File.file?("#{__dir__}/settings.yaml")
@@ -28,6 +29,7 @@ Vagrant.configure('2') do |config|
       accelerate3d: :on,
       vrde: :off,
       audiocontroller: :hda,
+      monitorcount: settings['monitors']
     }.each do |option, value|
       vb.customize ['modifyvm', :id, "--#{option}", value]
     end
