@@ -3,7 +3,11 @@
   become: true
   roles:
     - { role: first-steps }
-    - { role: main-user, name: ayqazi, uid: 1000, gid: 1000, homedir: /home/ayqazi }
+    - role: main-user
+      name: "{{ main_user_name }}"
+      uid: "{{ main_user_uid }}"
+      gid: "{{ main_user_gid }}"
+      homedir: "{{ main_user_homedir }}"
     - { role: base-packages }
     - { role: common-packages }
     - { role: scripts }

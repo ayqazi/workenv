@@ -1,3 +1,8 @@
 ---
 ubuntu_distribution: xenial
 mirror_country_code: gb
+
+main_user_name: 'ayqazi'
+main_user_homedir: '/home/ayqazi'
+main_user_uid: 1000
+main_user_gid: 1000
