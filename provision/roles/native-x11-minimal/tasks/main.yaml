@@ -1,0 +1,5 @@
+---
+- name: 'Install native-specific minimal X11 packages'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - xserver-xorg-input-synaptics

@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - { role: native-x11-minimal }
+    - { role: gui, tags: gui }
