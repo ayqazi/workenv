@@ -5,6 +5,7 @@
     - fonts-dejavu-core
     - fonts-dejavu-extra
     - i3
+    - ubuntu-mate-themes
     - mate-settings-daemon
 
 - name: 'Add i3 config dir'
