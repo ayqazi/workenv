@@ -12,3 +12,7 @@
     - { role: common-packages }
     - { role: scripts }
     - { role: gui }
+
+  tasks:
+    - name: 'Remove unused packages'
+      apt: { autoremove: yes }
