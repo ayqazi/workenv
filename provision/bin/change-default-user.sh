@@ -14,3 +14,5 @@ chown -R vagrant:vagrant /home/vagrant
 echo vagrant:vagrant | chpasswd
 
 rm /etc/rc.local
+
+exit 0
