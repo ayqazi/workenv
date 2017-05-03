@@ -2,5 +2,5 @@
 - name: 'Create user dir'
   file: { name: "{{ homedir }}", state: directory, owner: "{{ uid }}", group: "{{ gid }}", mode: 0770 }
 
-- name: 'Add user to other groups'
-  user: { name: "{{ name }}", groups: 'video', append: true }
+- name: 'Customize the user further'
+  user: { name: "{{ name }}", groups: 'video', append: true, comment: "{{ main_user_name }}" }
