@@ -3,4 +3,12 @@
   file: { name: "{{ homedir }}", state: directory, owner: "{{ uid }}", group: "{{ gid }}", mode: 0770 }
 
 - name: 'Customize the user further'
-  user: { name: "{{ name }}", groups: 'video', append: true, comment: "{{ main_user_name }}" }
+  user:
+    name: "{{ name }}"
+    groups:
+      - 'video'
+      - 'libvirtd'
+      - 'lpadmin'
+      - 'plugdev'
+    append: true
+    comment: "{{ comment }}"
