@@ -2,12 +2,13 @@
 - hosts: localhost
   become: true
   roles:
-    - { role: first-steps }
+    - { role: virtualbox-first-steps }
     - role: main-user
       name: "{{ main_user_name }}"
       uid: "{{ main_user_uid }}"
       gid: "{{ main_user_gid }}"
       homedir: "{{ main_user_homedir }}"
+      comment: "{{ main_user_comment }}"
     - { role: base-packages }
     - { role: common-packages }
     - { role: scripts }
