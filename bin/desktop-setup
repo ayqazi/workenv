@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+import sys
+import os
+import subprocess
+
+if not 'DISPLAY' in os.environ:
+    print('ERROR: Must be logged into a MATE session', file=sys.stderr)
+    exit(1)
+
+if not os.path.exists(os.path.expanduser("~/.gsettings-list-recursively.defaults")):
+    proc = subprocess.Popen(['gsettings', 'list-recursively'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    (stdout, stderr) = proc.communicate()
+    if proc.wait() != 0:
+        print(stdout)
+        print("ERROR: error calling gsettings:\n" + stderr, file=sys.stderr)
+        exit(2)
+    with open(os.path.expanduser("~/.gsettings-list-recursively.defaults"), 'w') as f:
+        f.write(stdout)
+
+settings = {
+    'org.mate.peripherals-keyboard-xkb.kbd': {
+        'layouts': "['gb']"
+    },
+    'org.mate.Marco.general': {
+        'mouse-button-modifier': '<Super>',
+        'focus-mode': 'sloppy'
+    },
+    'org.mate.peripherals-keyboard': {
+        'delay': 250,
+        'rate': 30
+    },
+    'org.mate.terminal.global': {
+        'use-mnemonics': 'false'
+    },
+    'org.mate.power-manager': {
+        'sleep-display-ac': 0
+    }
+}
+
+for schema, values in settings.iteritems():
+    for key, value in values.iteritems():
+        print("Setting: " + schema + " " + key + " " + str(value))
+        proc = subprocess.Popen(['gsettings', 'set', schema, key, str(value)])
+        (stdout, stderr) = proc.communicate()
+        if proc.wait() != 0:
+            print(stdout)
+            print("ERROR: error calling gsettings:\n" + stderr, file=sys.stderr)
+            exit(3)
