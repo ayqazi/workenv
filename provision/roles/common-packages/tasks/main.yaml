@@ -15,6 +15,9 @@
     - shared/accepted-oracle-license-v1-1
     - msttcorefonts/accepted-mscorefonts-eula
 
+- name: 'Update apt cache'
+  apt: { update_cache: yes }
+
 - name: 'Install commonly used requirements for building other packages'
   apt: { name: "{{ item }}", state: latest }
   with_items:
@@ -52,6 +55,7 @@
     - openssh-client
     - openssh-server
     - openssh-blacklist-extra
+    - bash-completion
 
 - name: 'Install tools used for development'
   apt: { name: "{{ item }}", state: latest }
@@ -60,3 +64,6 @@
     - emacs24
     - emacs24-el
     - emacs-goodies-el
+
+- name: 'Install pyOpenSSL from pip'
+  pip: { name: 'pyOpenSSL', state: present }

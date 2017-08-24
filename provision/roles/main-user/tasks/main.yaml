@@ -7,7 +7,6 @@
     name: "{{ name }}"
     groups:
       - 'video'
-      - 'libvirtd'
       - 'lpadmin'
       - 'plugdev'
     append: true

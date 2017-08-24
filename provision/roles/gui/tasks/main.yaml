@@ -8,3 +8,6 @@
     - fonts-dejavu-core
     - fonts-dejavu-extra
     - i3
+
+- name: 'Remove troublesome Python OpenSSL directory'
+  file: { name: '/usr/lib/python2.7/dist-packages/OpenSSL/', state: absent }
