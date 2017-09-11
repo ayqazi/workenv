@@ -9,5 +9,21 @@
     - fonts-dejavu-extra
     - i3
 
+- name: 'Install GUI tools'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - chromium-browser
+
+- name: 'Update alternatives'
+  alternatives:
+    name: "{{ item[0] }}"
+    link: "{{ item[1] }}"
+    path: "{{ item[2] }}"
+    priority: "{{ item[3] }}"
+  with_nested: # STUPID Ansible defaults to flattening nested arrays if using with_items
+    - - [ 'x-www-browser', '/usr/bin/x-www-browser', '/usr/bin/chromium-browser', '1000' ]
+      - [ 'gnome-www-browser', '/usr/bin/gnome-www-browser', '/usr/bin/chromium-browser', '1000' ]
+  tags: tmp
+
 - name: 'Remove troublesome Python OpenSSL directory'
   file: { name: '/usr/lib/python2.7/dist-packages/OpenSSL/', state: absent }
