@@ -7,9 +7,11 @@
     - mate-desktop-environment-extras
     - fonts-dejavu-core
     - fonts-dejavu-extra
+    - ttf-mscorefonts-installer
     - i3
+  tags: tmp
 
-- name: 'Install GUI tools'
+- name: 'Install tools and packages'
   apt: { name: "{{ item }}", state: latest }
   with_items:
     - chromium-browser
@@ -23,7 +25,6 @@
   with_nested: # STUPID Ansible defaults to flattening nested arrays if using with_items
     - - [ 'x-www-browser', '/usr/bin/x-www-browser', '/usr/bin/chromium-browser', '1000' ]
       - [ 'gnome-www-browser', '/usr/bin/gnome-www-browser', '/usr/bin/chromium-browser', '1000' ]
-  tags: tmp
 
 - name: 'Remove troublesome Python OpenSSL directory'
   file: { name: '/usr/lib/python2.7/dist-packages/OpenSSL/', state: absent }
