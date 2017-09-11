@@ -7,9 +7,7 @@
     - mate-desktop-environment-extras
     - fonts-dejavu-core
     - fonts-dejavu-extra
-    - ttf-mscorefonts-installer
     - i3
-  tags: tmp
 
 - name: 'Install tools and packages'
   apt: { name: "{{ item }}", state: latest }
