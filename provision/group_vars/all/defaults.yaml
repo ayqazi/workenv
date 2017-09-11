@@ -7,3 +7,7 @@ main_user_comment: 'Asfand Qazi,,,'
 main_user_homedir: '/home/ayqazi'
 main_user_uid: 1000
 main_user_gid: 1000
+main_user_default_groups:
+  - 'video'
+  - 'lpadmin'
+  - 'plugdev'

@@ -5,9 +5,6 @@
 - name: 'Customize the user further'
   user:
     name: "{{ name }}"
-    groups:
-      - 'video'
-      - 'lpadmin'
-      - 'plugdev'
+    groups: "{{ main_user_default_groups + main_user_extra_groups }}"
     append: true
     comment: "{{ comment }}"

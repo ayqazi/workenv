@@ -9,6 +9,7 @@
       gid: "{{ main_user_gid }}"
       homedir: "{{ main_user_homedir }}"
       comment: "{{ main_user_comment }}"
+      main_user_extra_groups: ['vagrant']
     - { role: base-packages }
     - { role: common-packages }
     - { role: scripts }
