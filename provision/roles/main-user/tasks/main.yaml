@@ -1,6 +1,13 @@
 ---
-- name: 'Create user dir'
-  file: { name: "{{ homedir }}", state: directory, owner: "{{ uid }}", group: "{{ gid }}", mode: 0770 }
+- name: 'Create user home dir'
+  file: { name: "{{ main_user_homedir }}", state: directory, owner: "{{ name }}", group: "{{ name }}", mode: "0750" }
+
+- name: 'Import user setting files'
+  script: 'bin/create-home-dir.sh'
+  args:
+    creates: "{{ main_user_homedir }}/.homebak/.git/index"
+  become: true
+  become_user: "{{ name }}"
 
 - name: 'Customize the user further'
   user:
