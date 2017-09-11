@@ -36,6 +36,10 @@ settings = {
     },
     'org.mate.power-manager': {
         'sleep-display-ac': 0
+    },
+    'org.mate.Marco.global-keybindings': {
+        'switch-windows-backward': '<Super><Shift>Tab',
+        'switch-windows': '<Super>Tab'
     }
 }
 
