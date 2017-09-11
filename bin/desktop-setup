@@ -40,6 +40,10 @@ settings = {
     'org.mate.Marco.global-keybindings': {
         'switch-windows-backward': '<Super><Shift>Tab',
         'switch-windows': '<Super>Tab'
+    },
+    'org.mate.font-rendering': {
+        'dpi': '96.0',
+        'hinting': 'full'
     }
 }
 
