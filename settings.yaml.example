@@ -3,3 +3,4 @@ default:
   cpus: 2
   mem: 4
   monitors: 1
+  hostname: jumper
