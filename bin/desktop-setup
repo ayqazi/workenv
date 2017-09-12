@@ -35,7 +35,14 @@ settings = {
         'use-mnemonics': 'false'
     },
     'org.mate.power-manager': {
-        'sleep-display-ac': 0
+        'backlight-battery-reduce': 'false',
+        'sleep-display-ac': 0,
+        'sleep-display-battery': 0,
+        'icon-policy': 'never'
+    },
+    'org.mate.screensaver': {
+        'lock-enabled': 'false',
+        'idle-activation-enabled': 'false'
     },
     'org.mate.Marco.global-keybindings': {
         'switch-windows-backward': '<Super><Shift>Tab',
