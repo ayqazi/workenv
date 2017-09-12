@@ -51,6 +51,9 @@ settings = {
     'org.mate.font-rendering': {
         'dpi': '96.0',
         'hinting': 'full'
+    },
+    'org.mate.interface': {
+        'monospace-font-name': 'Ubuntu Mono 11'
     }
 }
 
