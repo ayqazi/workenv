@@ -27,6 +27,10 @@ settings = {
         'mouse-button-modifier': '<Super>',
         'focus-mode': 'sloppy'
     },
+    'org.mate.Marco.global-keybindings': {
+        'switch-windows-backward': '<Super><Shift>Tab',
+        'switch-windows': '<Super>Tab'
+    },
     'org.mate.peripherals-keyboard': {
         'delay': 250,
         'rate': 30
@@ -44,16 +48,16 @@ settings = {
         'lock-enabled': 'false',
         'idle-activation-enabled': 'false'
     },
-    'org.mate.Marco.global-keybindings': {
-        'switch-windows-backward': '<Super><Shift>Tab',
-        'switch-windows': '<Super>Tab'
-    },
     'org.mate.font-rendering': {
         'dpi': '96.0',
         'hinting': 'full'
     },
     'org.mate.interface': {
         'monospace-font-name': 'Ubuntu Mono 11'
+    },
+    'org.mate.sound': {
+        'theme-name': '__no_sounds',
+        'event-sounds': 'false'
     }
 }
 
