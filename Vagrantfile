@@ -7,6 +7,11 @@ settings = {
   'hostname' => "#{`hostname`.chomp}vm"
 }
 
+unless Vagrant.has_plugin?('vagrant-vbguest')
+  $stderr.puts('Please install vagrant-vbguest plugin: vagrant plugin install vagrant-vbguest')
+  exit 1
+end
+
 if File.file?("#{__dir__}/settings.yaml")
   settings.merge!(YAML.load_file("#{__dir__}/settings.yaml")['default'])
 end
