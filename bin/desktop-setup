@@ -36,7 +36,18 @@ settings = {
         'rate': 30
     },
     'org.mate.terminal.global': {
+        'use-menu-accelerators': 'false',
         'use-mnemonics': 'false'
+    },
+    'org.mate.terminal.keybindings': {
+        'new-window': 'disabled',
+        'close-window': 'disabled',
+        'new-tab': '<Ctrl>t',
+        'close-tab': 'disabled',
+        # 'next-tab': '<Ctrl>Tab',       # These do not work
+        # 'prev-tab': '<Ctrl><Shift>Tab'
+        'next-tab': 'disabled',
+        'prev-tab': 'disabled'
     },
     'org.mate.power-manager': {
         'backlight-battery-reduce': 'false',
