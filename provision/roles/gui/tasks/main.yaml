@@ -13,11 +13,15 @@
   apt: { name: "{{ item }}", state: latest }
   with_items:
     - chromium-browser
+    - parcellite
 
 - name: 'Purge GUI packages'
   apt: { name: "{{ item }}", state: absent }
   with_items:
     - tilda
+    - thunderird
+    - xul-ext-gdata-provider
+    - xul-ext-lightning
 
 - name: 'Update alternatives'
   alternatives:
