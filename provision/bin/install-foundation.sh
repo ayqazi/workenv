@@ -2,7 +2,7 @@
 
 set -e
 
-ANSIBLE_VERSION=2.3.0.0
+ANSIBLE_VERSION=2.3.2.0
 
 if ! which ansible &> /dev/null || \
                 [ "$(ansible --version | head -n1 | cut -d' ' -f2)" != "${ANSIBLE_VERSION}" ] ; then
