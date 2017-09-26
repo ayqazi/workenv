@@ -1,0 +1,5 @@
+---
+- name: 'Install BGCH specific packages'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - pass
