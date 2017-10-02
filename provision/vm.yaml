@@ -13,6 +13,7 @@
     - { role: base-packages }
     - { role: common-packages }
     - { role: scripts }
+    - { role: system }
     - { role: gui }
     - { role: bgch, tags: bgch }
 
