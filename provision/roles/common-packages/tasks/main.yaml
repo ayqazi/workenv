@@ -37,10 +37,12 @@
     - openjdk-8-jdk
     - libyaml-dev
     - sqlite3
+    - libsqlite3-dev
     - libgdbm-dev
     - libncurses5-dev
     - libffi-dev
     - libmath-round-perl # needed by ayqpw
+    - libbz2-dev
 
 - name: 'Install commonly used packages'
   apt: { name: "{{ item }}", state: latest }
