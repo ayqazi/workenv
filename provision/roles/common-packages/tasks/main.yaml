@@ -40,7 +40,6 @@
     - libsqlite3-dev
     - libgdbm-dev
     - libncurses5-dev
-    - libffi-dev
     - libmath-round-perl # needed by ayqpw
     - libbz2-dev
 
