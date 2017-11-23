@@ -5,6 +5,7 @@
     - devscripts
     - libjs-sphinxdoc
     - virtualenv
+    - debhelper
 
 - name: 'Download dh-virtualenv deb'
   get_url:
