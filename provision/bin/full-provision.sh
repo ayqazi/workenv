@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/bash -e
 
 cd "$(dirname ${0})/.."
+
+HOME="$(getent passwd "${USER}" | cut -d: -f6)"
 
 set -x
 
