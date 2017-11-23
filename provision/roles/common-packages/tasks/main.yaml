@@ -57,6 +57,8 @@
     - openssh-server
     - openssh-blacklist-extra
     - bash-completion
+    - python3
+    - python3-venv
 
 - name: 'Install tools used for development'
   apt: { name: "{{ item }}", state: latest }
