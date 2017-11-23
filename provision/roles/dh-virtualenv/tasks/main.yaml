@@ -1,0 +1,19 @@
+---
+- name: 'Install dh-virtualenv dependencies'
+  apt: { name: "{{ item }}", state: latest }
+  with_items:
+    - devscripts
+    - libjs-sphinxdoc
+    - virtualenv
+
+- name: 'Download dh-virtualenv deb'
+  get_url:
+    url: "http://mirrors.kernel.org/ubuntu/pool/universe/d/dh-virtualenv/dh-virtualenv_{{ dh_virtualenv_version }}_all.deb"
+    dest: "/tmp/dh-virtualenv_{{ dh_virtualenv_version }}_all.deb"
+    owner: root
+    group: root
+    mode: 0644
+    checksum: 'sha1:2379541cce0699e297d4031056be81e68a5e7d70'
+
+- name: 'Install dh-virtualenv package'
+  apt: { deb: "/tmp/dh-virtualenv_{{ dh_virtualenv_version }}_all.deb", state: present }

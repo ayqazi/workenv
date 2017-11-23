@@ -12,6 +12,7 @@
       main_user_extra_groups: ['vagrant']
     - { role: base-packages }
     - { role: common-packages }
+    - { role: dh-virtualenv, tags: dh-virtualenv }
     - { role: scripts }
     - { role: system }
     - { role: gui }
