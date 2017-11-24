@@ -13,6 +13,7 @@
     - { role: base-packages }
     - { role: common-packages }
     - { role: dh-virtualenv, tags: dh-virtualenv }
+    - { role: go, tags: go }
     - { role: scripts }
     - { role: system }
     - { role: gui }
