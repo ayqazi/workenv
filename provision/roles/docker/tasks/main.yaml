@@ -1,0 +1,17 @@
+---
+- name: "Add Docker repo key"
+  apt_key:
+    url: "https://download.docker.com/linux/ubuntu/gpg"
+    id: "9DC858229FC7DD38854AE2D88D81803C0EBFCD88"
+    state: present
+
+- name: "Add Docker repo"
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_distribution }} stable"
+    state: present
+
+- name: "Update apt and install Docker"
+  apt:
+    name: "docker-ce"
+    state: present
+    update_cache: true

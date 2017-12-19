@@ -14,6 +14,7 @@
     - { role: common-packages }
     - { role: dh-virtualenv, tags: dh-virtualenv }
     - { role: go, tags: go }
+    - { role: docker, tags: docker }
     - { role: scripts }
     - { role: system }
     - { role: gui }
