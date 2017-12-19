@@ -15,3 +15,9 @@
     name: "docker-ce"
     state: present
     update_cache: true
+
+- name: "Add main user to Docker group"
+  user:
+    name: "{{ main_user_name }}"
+    groups: "docker"
+    append: true
