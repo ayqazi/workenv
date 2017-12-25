@@ -5,8 +5,5 @@
     mode: 0644
     state: present
 
-- name: 'Switch the apt sources mirror to a more local one'
-  command: "sed -i.apt-mirror.bak -e 's!deb http://us.archive.ubuntu.com/!deb http://{{ mirror_country_code }}.archive.ubuntu.com/!g' /etc/apt/sources.list"
-
 - name: 'Upgrade all packages'
   apt: { update_cache: yes, upgrade: dist }
