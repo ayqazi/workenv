@@ -16,11 +16,6 @@ background-color='#FFFFFFFFDDDD'
 scrollback-lines=10000
 
 
-[org/mate/panel/general]
-toplevel-id-list=['bottom']
-history-mate-run=['emacs', 'firefox', 'libreoffice', 'virtualbox', 'parcellite', 'libreoffice --calc ', 'chromium-browser', 'galculator', 'gimp', 'mate-terminal']
-object-id-list=['notification-area', 'clock', 'window-list', 'workspace-switcher', 'object-0']
-
 [org/mate/panel/toplevels/bottom]
 expand=true
 orientation='bottom'
@@ -77,3 +72,8 @@ locked=true
 toplevel-id='bottom'
 position=20
 object-type='applet'
+
+[org/mate/panel/general]
+toplevel-id-list=['bottom']
+history-mate-run=['emacs', 'firefox', 'libreoffice', 'virtualbox', 'parcellite', 'libreoffice --calc ', 'chromium-browser', 'galculator', 'gimp', 'mate-terminal']
+object-id-list=['notification-area', 'clock', 'window-list', 'workspace-switcher', 'object-0']
