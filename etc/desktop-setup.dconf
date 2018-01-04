@@ -16,19 +16,24 @@ background-color='#FFFFFFFFDDDD'
 scrollback-lines=10000
 
 
+[org/mate/panel/general]
+toplevel-id-list=['bottom']
+history-mate-run=['mate-terminal', 'gimp', 'galculator', 'chromium-browser', 'libreoffice --calc ', 'parcellite', 'virtualbox', 'libreoffice', 'firefox', 'emacs']
+object-id-list=['notification-area', 'clock', 'window-list', 'workspace-switcher', 'object-0']
+
 [org/mate/panel/toplevels/bottom]
 expand=true
 orientation='bottom'
 screen=0
 y-bottom=0
 size=24
-y=871
+y=828
 
 [org/mate/panel/objects/clock]
 applet-iid='ClockAppletFactory::ClockApplet'
 locked=true
 toplevel-id='bottom'
-position=110
+position=114
 object-type='applet'
 panel-right-stick=true
 
@@ -41,7 +46,7 @@ custom-format=''
 applet-iid='NotificationAreaAppletFactory::NotificationArea'
 locked=true
 toplevel-id='bottom'
-position=196
+position=223
 object-type='applet'
 panel-right-stick=true
 
@@ -49,9 +54,9 @@ panel-right-stick=true
 applet-iid='WnckletFactory::WorkspaceSwitcherApplet'
 locked=true
 toplevel-id='bottom'
-position=1662
+position=254
 object-type='applet'
-panel-right-stick=false
+panel-right-stick=true
 
 [org/mate/panel/objects/workspace-switcher/prefs]
 display-all-workspaces=true
@@ -72,8 +77,3 @@ locked=true
 toplevel-id='bottom'
 position=20
 object-type='applet'
-
-[org/mate/panel/general]
-toplevel-id-list=['bottom']
-history-mate-run=['emacs', 'firefox', 'libreoffice', 'virtualbox', 'parcellite', 'libreoffice --calc ', 'chromium-browser', 'galculator', 'gimp', 'mate-terminal']
-object-id-list=['notification-area', 'clock', 'window-list', 'workspace-switcher', 'object-0']
