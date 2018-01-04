@@ -16,3 +16,4 @@
     append: true
     comment: "{{ comment }}"
     generate_ssh_key: true
+    ssh_key_comment: "{{ main_user_name }}@{{ ansible_hostname }}"

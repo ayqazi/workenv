@@ -10,6 +10,7 @@
       homedir: "{{ main_user_homedir }}"
       comment: "{{ main_user_comment }}"
       main_user_extra_groups: ['vagrant']
+      tags: main-user
     - { role: base-packages }
     - { role: common-packages }
     - { role: dh-virtualenv, tags: dh-virtualenv }
