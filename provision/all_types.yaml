@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - role: main-user
+      name: "{{ main_user_name }}"
+      uid: "{{ main_user_uid }}"
+      gid: "{{ main_user_gid }}"
+      homedir: "{{ main_user_homedir }}"
+      comment: "{{ main_user_comment }}"
+      main_user_extra_groups: ['vagrant']
+      tags: main-user
+    - { role: base-packages }
+    - { role: common-packages }
+    - { role: dh-virtualenv, tags: dh-virtualenv }
+    - { role: go, tags: go }
+    - { role: docker, tags: docker }
+    - { role: scripts }
+    - { role: system }
+    - { role: gui }
+    - { role: bgch, tags: bgch }
+
+  tasks:
+    - name: 'Remove unused packages'
+      apt: { autoremove: yes }

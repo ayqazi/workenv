@@ -1,18 +1,2 @@
 ---
-- hosts: localhost
-  become: true
-  roles:
-    - role: main-user
-      name: "{{ main_user_name }}"
-      uid: "{{ main_user_uid }}"
-      gid: "{{ main_user_gid }}"
-      homedir: "{{ main_user_homedir }}"
-      comment: "{{ main_user_comment }}"
-    - { role: base-packages }
-    - { role: common-packages }
-    - { role: scripts }
-    - { role: gui }
-
-  tasks:
-    - name: 'Remove unused packages'
-      apt: { autoremove: yes }
+- import_playbook: 'all_types.yaml'
