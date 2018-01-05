@@ -82,7 +82,6 @@ for schema, values in settings.iteritems():
             print("ERROR: error calling gsettings:\n" + stderr, file=sys.stderr)
             exit(3)
 
-
 dconf_file = open(os.path.dirname(os.path.abspath(__file__)) + '/../etc/desktop-setup.dconf')
 print('Loading dconf settings')
 proc = subprocess.Popen(['dconf', 'load', '/'], stdin=dconf_file)
