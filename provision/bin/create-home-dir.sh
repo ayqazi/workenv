@@ -12,3 +12,6 @@ cd "${HOME}/.homebak"
 mygit init .
 mygit remote add -f origin https://github.com/ayqazi/homebak.git
 mygit checkout master
+
+chmod 700 "${HOME}/.ssh"
+"${HOME}/bin/assemble-ssh-config"

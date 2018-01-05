@@ -2,7 +2,7 @@
 - name: 'Create user home dir'
   file: { name: "{{ main_user_homedir }}", state: directory, owner: "{{ name }}", group: "{{ name }}", mode: "0750" }
 
-- name: 'Import user setting files'
+- name: 'Set up home directory'
   script: 'bin/create-home-dir.sh'
   args:
     creates: "{{ main_user_homedir }}/.homebak/.git/index"
