@@ -1,1 +1,2 @@
 * text eol=lf
+bin/bootstrap-vm.bat text eol=crlf
