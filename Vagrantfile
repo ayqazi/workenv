@@ -43,5 +43,5 @@ Vagrant.configure('2') do |config|
     vb.customize ['guestproperty', 'set', :id, '/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold', 10000]
   end
 
-  config.vm.provision 'shell', inline: 'exec /vagrant/provision/bin/bootstrap.sh', privileged: false
+  config.vm.provision 'shell', inline: 'exec /vagrant/provision/bin/provision-vm', privileged: false
 end
