@@ -4,7 +4,8 @@
   roles:
     - { role: virtualbox-first-steps }
   tasks:
-    - set_fact:
-        main_user_extra_groups: ['vagrant']
+    - add_host:
+        name: localhost
+        groups: vm
 
 - import_playbook: 'all_types.yaml'
