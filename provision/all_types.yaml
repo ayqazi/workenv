@@ -8,7 +8,6 @@
       gid: "{{ main_user_gid }}"
       homedir: "{{ main_user_homedir }}"
       comment: "{{ main_user_comment }}"
-      main_user_extra_groups: ['vagrant']
       tags: main-user
     - { role: base-packages }
     - { role: common-packages }
@@ -18,7 +17,6 @@
     - { role: scripts }
     - { role: system }
     - { role: gui }
-    - { role: bgch, tags: bgch }
 
   tasks:
     - name: 'Remove unused packages'

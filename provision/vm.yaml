@@ -3,5 +3,8 @@
   become: true
   roles:
     - { role: virtualbox-first-steps }
+  tasks:
+    - set_fact:
+        main_user_extra_groups: ['vagrant']
 
 - import_playbook: 'all_types.yaml'
