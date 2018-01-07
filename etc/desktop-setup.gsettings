@@ -1,0 +1,54 @@
+org.mate.Marco.global-keybindings switch-windows-all 'disabled'
+org.mate.Marco.global-keybindings switch-windows-all-backward 'disabled'
+org.mate.Marco.global-keybindings switch-windows-backward '<Super><Shift>Tab'
+org.mate.Marco.global-keybindings switch-windows '<Super>Tab'
+
+org.mate.sound event-sounds false
+org.mate.sound theme-name '__no_sounds'
+
+org.mate.terminal.global use-menu-accelerators false
+org.mate.terminal.global use-mnemonics false
+
+org.mate.power-manager sleep-display-ac 0
+org.mate.power-manager backlight-battery-reduce false
+org.mate.power-manager icon-policy 'never'
+org.mate.power-manager sleep-display-battery 0
+
+org.mate.Marco.general focus-mode 'sloppy'
+org.mate.Marco.general mouse-button-modifier '<Super>'
+
+org.mate.peripherals-keyboard-xkb.kbd layouts ['gb']
+
+org.mate.terminal.keybindings new-tab '<Ctrl>t'
+org.mate.terminal.keybindings prev-tab 'disabled'
+org.mate.terminal.keybindings new-window 'disabled'
+org.mate.terminal.keybindings next-tab 'disabled'
+org.mate.terminal.keybindings close-window 'disabled'
+org.mate.terminal.keybindings close-tab 'disabled'
+
+org.mate.font-rendering hinting 'full'
+org.mate.font-rendering dpi 96.0
+
+org.mate.screensaver idle-activation-enabled false
+org.mate.screensaver lock-enabled false
+
+org.mate.interface monospace-font-name 'Ubuntu Mono 11'
+
+org.mate.peripherals-keyboard delay 250
+org.mate.peripherals-keyboard rate 30
+
+org.mate.peripherals-mouse motion-acceleration 7.0
+org.mate.peripherals-mouse motion-threshold 0
+
+org.mate.peripherals-touchpad tap-to-click false
+org.mate.peripherals-touchpad natural-scroll false
+org.mate.peripherals-touchpad tap-button-one-finger 1
+org.mate.peripherals-touchpad tap-button-three-finger 2
+org.mate.peripherals-touchpad tap-button-two-finger 3
+org.mate.peripherals-touchpad scroll-method 2
+org.mate.peripherals-touchpad horiz-scroll-enabled false
+org.mate.peripherals-touchpad two-finger-click 2
+org.mate.peripherals-touchpad disable-while-typing true
+org.mate.peripherals-touchpad three-finger-click 0
+org.mate.peripherals-touchpad touchpad-enabled true
+
