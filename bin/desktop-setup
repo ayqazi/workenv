@@ -19,67 +19,19 @@ if not os.path.exists(os.path.expanduser("~/.gsettings-list-recursively.defaults
     with open(os.path.expanduser("~/.gsettings-list-recursively.defaults"), 'w') as f:
         f.write(stdout)
 
-settings = {
-    'org.mate.peripherals-keyboard-xkb.kbd': {
-        'layouts': "['gb']"
-    },
-    'org.mate.Marco.general': {
-        'mouse-button-modifier': '<Super>',
-        'focus-mode': 'sloppy'
-    },
-    'org.mate.Marco.global-keybindings': {
-        'switch-windows-backward': '<Super><Shift>Tab',
-        'switch-windows': '<Super>Tab'
-    },
-    'org.mate.peripherals-keyboard': {
-        'delay': 250,
-        'rate': 30
-    },
-    'org.mate.terminal.global': {
-        'use-menu-accelerators': 'false',
-        'use-mnemonics': 'false'
-    },
-    'org.mate.terminal.keybindings': {
-        'new-window': 'disabled',
-        'close-window': 'disabled',
-        'new-tab': '<Ctrl>t',
-        'close-tab': 'disabled',
-        # 'next-tab': '<Ctrl>Tab',       # These do not work
-        # 'prev-tab': '<Ctrl><Shift>Tab'
-        'next-tab': 'disabled',
-        'prev-tab': 'disabled'
-    },
-    'org.mate.power-manager': {
-        'backlight-battery-reduce': 'false',
-        'sleep-display-ac': 0,
-        'sleep-display-battery': 0,
-        'icon-policy': 'never'
-    },
-    'org.mate.screensaver': {
-        'lock-enabled': 'false',
-        'idle-activation-enabled': 'false'
-    },
-    'org.mate.font-rendering': {
-        'dpi': '96.0',
-        'hinting': 'full'
-    },
-    'org.mate.interface': {
-        'monospace-font-name': 'Ubuntu Mono 11'
-    },
-    'org.mate.sound': {
-        'theme-name': '__no_sounds',
-        'event-sounds': 'false'
-    }
-}
-
-for schema, values in settings.iteritems():
-    for key, value in values.iteritems():
-        print("Setting: " + schema + " " + key + " " + str(value))
-        proc = subprocess.Popen(['gsettings', 'set', schema, key, str(value)])
+gsettings_file = os.path.dirname(os.path.abspath(__file__)) + '/../etc/desktop-setup.gsettings'
+with open(gsettings_file) as f:
+    for l in f:
+        params = l.strip().split(None, 2)
+        if params == []:
+            continue
+        print("Setting: " + ' '.join(['gsettings', 'set'] + params))
+        proc = subprocess.Popen(['gsettings', 'set'] + params)
         (stdout, stderr) = proc.communicate()
         if proc.wait() != 0:
             print(stdout)
-            print("ERROR: error calling gsettings:\n" + stderr, file=sys.stderr)
+            print("ERROR: error calling gsettings:\n", file=sys.stderr)
+            print(stderr, file=sys.stderr)
             exit(3)
 
 dconf_file = open(os.path.dirname(os.path.abspath(__file__)) + '/../etc/desktop-setup.dconf')
