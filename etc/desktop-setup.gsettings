@@ -11,7 +11,7 @@ org.mate.terminal.global use-mnemonics false
 
 org.mate.power-manager sleep-display-ac 0
 org.mate.power-manager backlight-battery-reduce false
-org.mate.power-manager icon-policy 'never'
+org.mate.power-manager icon-policy 'always'
 org.mate.power-manager sleep-display-battery 0
 
 org.mate.Marco.general focus-mode 'sloppy'
@@ -51,4 +51,3 @@ org.mate.peripherals-touchpad two-finger-click 2
 org.mate.peripherals-touchpad disable-while-typing true
 org.mate.peripherals-touchpad three-finger-click 0
 org.mate.peripherals-touchpad touchpad-enabled true
-
