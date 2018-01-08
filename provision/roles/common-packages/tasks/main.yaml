@@ -67,6 +67,7 @@
   apt: { name: "{{ item }}", state: latest }
   with_items:
     - git
+    - git-crypt
     - emacs24
     - emacs24-el
     - emacs-goodies-el
