@@ -42,3 +42,8 @@ if proc.wait() != 0:
     print(stdout)
     print("ERROR: error calling dconf:\n" + stderr, file=sys.stderr)
     exit(4)
+
+touchpad_settings = os.path.expanduser("~/bin/touchpad-load-settings")
+if os.path.exists(touchpad_settings):
+    print("Loading touchpad settings")
+    subprocess.call([touchpad_settings])
