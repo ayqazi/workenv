@@ -18,7 +18,7 @@ scrollback-lines=10000
 
 [org/mate/panel/general]
 toplevel-id-list=['bottom']
-history-mate-run=['mate-terminal', 'gimp', 'galculator', 'chromium-browser', 'libreoffice --calc ', 'parcellite', 'virtualbox', 'libreoffice', 'firefox', 'emacs']
+history-mate-run=['/home/ayqazi/bin/touchpad-load-settings', 'gimp', 'galculator', 'chromium-browser', 'libreoffice --calc ', 'parcellite', 'virtualbox', 'libreoffice', 'firefox', 'emacs']
 object-id-list=['notification-area', 'clock', 'window-list', 'workspace-switcher', 'object-0']
 
 [org/mate/panel/toplevels/bottom]
@@ -27,7 +27,7 @@ orientation='bottom'
 screen=0
 y-bottom=0
 size=24
-y=1056
+y=1416
 
 [org/mate/panel/objects/clock]
 applet-iid='ClockAppletFactory::ClockApplet'
@@ -40,23 +40,24 @@ panel-right-stick=true
 [org/mate/panel/objects/clock/prefs]
 expand-locations=false
 format='24-hour'
+cities=@as []
 custom-format=''
 
 [org/mate/panel/objects/notification-area]
 applet-iid='NotificationAreaAppletFactory::NotificationArea'
 locked=true
 toplevel-id='bottom'
-position=215
+position=2283
 object-type='applet'
-panel-right-stick=true
+panel-right-stick=false
 
 [org/mate/panel/objects/workspace-switcher]
 applet-iid='WnckletFactory::WorkspaceSwitcherApplet'
 locked=true
 toplevel-id='bottom'
-position=252
+position=2260
 object-type='applet'
-panel-right-stick=true
+panel-right-stick=false
 
 [org/mate/panel/objects/workspace-switcher/prefs]
 display-all-workspaces=true
