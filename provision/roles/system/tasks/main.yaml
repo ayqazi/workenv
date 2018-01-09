@@ -8,3 +8,11 @@
     mode: 0440
     validate: '/usr/sbin/visudo -csf %s'
   tags: sudoers
+
+- name: 'Bump inotify limit (applied on reboot)'
+  copy:
+    content: "fs.inotify.max_user_watches = {{ system_inotify_max_user_watches }}\n"
+    dest: '/etc/sysctl.d/60-fs-inotify-max-user-watches.conf'
+    owner: root
+    group: root
+    mode: 0644
