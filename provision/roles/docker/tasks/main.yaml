@@ -21,3 +21,11 @@
     name: "{{ main_user_name }}"
     groups: "docker"
     append: true
+
+- name: "Install docker-compose binary"
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
+    dest: "/usr/local/bin/docker-compose"
+    owner: root
+    group: root
+    mode: 0755
