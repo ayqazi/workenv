@@ -33,7 +33,7 @@ y=1416
 applet-iid='ClockAppletFactory::ClockApplet'
 locked=true
 toplevel-id='bottom'
-position=104
+position=123
 object-type='applet'
 panel-right-stick=true
 
@@ -47,17 +47,17 @@ custom-format=''
 applet-iid='NotificationAreaAppletFactory::NotificationArea'
 locked=true
 toplevel-id='bottom'
-position=2283
+position=280
 object-type='applet'
-panel-right-stick=false
+panel-right-stick=true
 
 [org/mate/panel/objects/workspace-switcher]
 applet-iid='WnckletFactory::WorkspaceSwitcherApplet'
 locked=true
 toplevel-id='bottom'
-position=2260
+position=303
 object-type='applet'
-panel-right-stick=false
+panel-right-stick=true
 
 [org/mate/panel/objects/workspace-switcher/prefs]
 display-all-workspaces=true
