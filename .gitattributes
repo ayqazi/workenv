@@ -1,2 +1,4 @@
 * text eol=lf
+*.deb -text
+*.dmg -text
 bin/bootstrap-vm.bat text eol=crlf
