@@ -14,6 +14,7 @@
     - { role: dh-virtualenv, tags: dh-virtualenv }
     - { role: go, tags: go }
     - { role: docker, tags: docker }
+    - { role: phantomjs, tags: phantomjs }
     - { role: scripts }
     - { role: system }
     - { role: gui }
