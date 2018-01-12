@@ -137,7 +137,7 @@ org.mate.peripherals-touchpad tap-button-one-finger 1
 org.mate.peripherals-touchpad tap-button-three-finger 2
 org.mate.peripherals-touchpad tap-button-two-finger 3
 org.mate.peripherals-touchpad scroll-method 2
-org.mate.peripherals-touchpad horiz-scroll-enabled false
+org.mate.peripherals-touchpad horiz-scroll-enabled true
 org.mate.peripherals-touchpad two-finger-click 2
 org.mate.peripherals-touchpad disable-while-typing true
 org.mate.peripherals-touchpad three-finger-click 0
