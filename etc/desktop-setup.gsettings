@@ -102,10 +102,17 @@ org.mate.sound theme-name '__no_sounds'
 org.mate.terminal.global use-menu-accelerators false
 org.mate.terminal.global use-mnemonics false
 
-org.mate.power-manager sleep-display-ac 0
 org.mate.power-manager backlight-battery-reduce false
 org.mate.power-manager icon-policy 'always'
+org.mate.power-manager button-power 'suspend'
+
+org.mate.power-manager button-lid-ac 'nothing'
+org.mate.power-manager sleep-display-ac 0
+
+org.mate.power-manager button-lid-battery 'nothing'
 org.mate.power-manager sleep-display-battery 0
+org.mate.power-manager sleep-computer-battery 1800
+org.mate.power-manager sleep-display-battery 600
 
 org.mate.Marco.general focus-mode 'sloppy'
 org.mate.Marco.general mouse-button-modifier '<Super>'
