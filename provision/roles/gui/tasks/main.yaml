@@ -14,6 +14,7 @@
   with_items:
     - chromium-browser
     - parcellite
+    - gimp
 
 - name: 'Purge GUI packages'
   apt: { name: "{{ item }}", state: absent }
