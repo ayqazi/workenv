@@ -42,6 +42,7 @@
     - libncurses5-dev
     - libmath-round-perl # needed by ayqpw
     - libbz2-dev
+    - libpq-dev
 
 - name: 'Install commonly used packages'
   apt: { name: "{{ item }}", state: latest }
@@ -71,6 +72,8 @@
     - emacs24
     - emacs24-el
     - emacs-goodies-el
+    - postgresql-client-9.5
+    - postgresql-9.5
 
 - name: 'Install some pip packages for Python 2'
   pip: { name: "{{ item }}", state: present }
