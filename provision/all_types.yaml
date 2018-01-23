@@ -13,6 +13,7 @@
     - { role: common-packages }
     - { role: dh-virtualenv, tags: dh-virtualenv }
     - { role: go, tags: go }
+    - { role: rbenv, user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}", tags: rbenv }
     - { role: docker, tags: docker }
     - { role: phantomjs, tags: phantomjs }
     - { role: scripts }
