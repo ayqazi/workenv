@@ -75,6 +75,11 @@
     - postgresql-client-9.5
     - postgresql-9.5
 
+- name: 'Install debs not in repos'
+  apt: { deb: "{{ item }}" }
+  with_items: "{{ debs }}"
+  tags: debs
+
 - name: 'Install some pip packages for Python 2'
   pip: { name: "{{ item }}", state: present }
   with_items:
