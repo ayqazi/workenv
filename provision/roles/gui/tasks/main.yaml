@@ -15,6 +15,7 @@
     - chromium-browser
     - parcellite
     - gimp
+    - redshift
 
 - name: 'Purge GUI packages'
   apt: { name: "{{ item }}", state: absent }
