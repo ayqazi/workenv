@@ -82,7 +82,7 @@
     - wheel
 
 - name: 'Install some pip packages for Python 3'
-  pip: { name: "{{ item }}", state: present }
+  pip: { name: "{{ item }}", state: present, executable: /usr/bin/pip3 }
   with_items:
     - pyOpenSSL
     - wheel
