@@ -9,8 +9,8 @@
       homedir: "{{ main_user_homedir }}"
       comment: "{{ main_user_comment }}"
       tags: main-user
-    - { role: base-packages }
-    - { role: common-packages }
+    - { role: base-packages, tags: base-packages }
+    - { role: common-packages, tags: common-packages }
     - { role: dh-virtualenv, tags: dh-virtualenv }
     - { role: go, tags: go }
     - { role: rbenv, user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}", tags: rbenv }
