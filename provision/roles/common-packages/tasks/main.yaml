@@ -4,6 +4,12 @@
   with_items:
     - ppa:webupd8team/java
     - ppa:git-core/ppa
+    - 'deb https://cli-assets.heroku.com/branches/stable/apt ./'
+
+- name: 'Add apt keys by URL'
+  apt_key: { url: "{{ item }}", state: present }
+  with_items:
+    - 'https://cli-assets.heroku.com/apt/release.key'
 
 - name: 'Accept licenses'
   debconf:
@@ -25,7 +31,7 @@
     - bison
     - pkg-config
 
-- name: 'Install commonly used development libraries'
+- name: 'Install commonly used dev libraries, dev tools, and packages'
   apt: { name: "{{ item }}", state: latest }
   with_items:
     - libssl-dev
@@ -44,9 +50,6 @@
     - libbz2-dev
     - libpq-dev
 
-- name: 'Install commonly used packages'
-  apt: { name: "{{ item }}", state: latest }
-  with_items:
     - schedtool
     - pbzip2
     - pv
@@ -63,10 +66,9 @@
     - python3-venv
     - python3-pip
     - curl
+    - linux-tools-generic
+    - linux-cloud-tools-generic
 
-- name: 'Install tools used for development'
-  apt: { name: "{{ item }}", state: latest }
-  with_items:
     - git
     - git-crypt
     - emacs24
@@ -74,6 +76,8 @@
     - emacs-goodies-el
     - postgresql-client-9.5
     - postgresql-9.5
+
+    - heroku
 
 - name: 'Install debs not in repos'
   apt: { deb: "{{ item }}" }
