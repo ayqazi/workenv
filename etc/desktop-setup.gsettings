@@ -94,6 +94,9 @@ org.mate.Marco.window-keybindings move-to-side-s 'disabled'
 org.mate.Marco.window-keybindings close '<Control><Super>x'
 org.mate.Marco.window-keybindings toggle-on-all-workspaces 'disabled'
 
+org.mate.Marco.general focus-mode 'sloppy'
+org.mate.Marco.general mouse-button-modifier '<Super>'
+
 org.mate.SettingsDaemon.plugins.media-keys screensaver '<Mod4>l'
 
 org.mate.sound event-sounds false
@@ -113,9 +116,6 @@ org.mate.power-manager button-lid-battery 'nothing'
 org.mate.power-manager sleep-display-battery 0
 org.mate.power-manager sleep-computer-battery 1800
 org.mate.power-manager sleep-display-battery 600
-
-org.mate.Marco.general focus-mode 'sloppy'
-org.mate.Marco.general mouse-button-modifier '<Super>'
 
 org.mate.peripherals-keyboard-xkb.kbd layouts ['gb']
 
@@ -151,3 +151,6 @@ org.mate.peripherals-touchpad two-finger-click 2
 org.mate.peripherals-touchpad disable-while-typing true
 org.mate.peripherals-touchpad three-finger-click 0
 org.mate.peripherals-touchpad touchpad-enabled true
+
+org.mate.media-handling automount-open false
+org.mate.media-handling automount false
