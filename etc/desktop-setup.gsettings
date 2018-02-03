@@ -96,6 +96,7 @@ org.mate.Marco.window-keybindings toggle-on-all-workspaces 'disabled'
 
 org.mate.Marco.general focus-mode 'sloppy'
 org.mate.Marco.general mouse-button-modifier '<Super>'
+org.mate.Marco.general focus-new-windows 'strict'
 
 org.mate.SettingsDaemon.plugins.media-keys screensaver '<Mod4>l'
 
