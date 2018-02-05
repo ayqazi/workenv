@@ -109,6 +109,7 @@ org.mate.terminal.global use-mnemonics false
 org.mate.power-manager backlight-battery-reduce false
 org.mate.power-manager icon-policy 'always'
 org.mate.power-manager button-power 'suspend'
+org.mate.power-manager idle-dim-battery false
 
 org.mate.power-manager button-lid-ac 'nothing'
 org.mate.power-manager sleep-display-ac 0
