@@ -68,6 +68,7 @@
     - curl
     - linux-tools-generic
     - linux-cloud-tools-generic
+    - parallel
 
     - git
     - git-crypt
