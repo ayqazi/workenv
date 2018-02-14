@@ -118,6 +118,7 @@ org.mate.power-manager button-lid-battery 'nothing'
 org.mate.power-manager sleep-display-battery 0
 org.mate.power-manager sleep-computer-battery 1800
 org.mate.power-manager sleep-display-battery 600
+org.mate.power-manager action-critical-battery 'hibernate'
 
 org.mate.peripherals-keyboard-xkb.kbd layouts ['gb']
 
@@ -132,9 +133,13 @@ org.mate.font-rendering hinting 'full'
 org.mate.font-rendering dpi 96.0
 
 org.mate.screensaver idle-activation-enabled false
-org.mate.screensaver lock-enabled false
+org.mate.screensaver lock-enabled true
 
-org.mate.interface monospace-font-name 'Ubuntu Mono 11'
+org.mate.Marco.general titlebar-font 'DejaVu Sans Bold 10'
+org.mate.caja.desktop font 'DejaVu Sans 11'
+org.mate.interface monospace-font-name 'DejaVu Sans Mono 12'
+org.mate.interface font-name 'DejaVu Sans 11'
+org.mate.interface document-font-name 'DejaVu Sans 11'
 
 org.mate.peripherals-keyboard delay 250
 org.mate.peripherals-keyboard rate 30
