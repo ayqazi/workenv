@@ -69,6 +69,7 @@
     - linux-tools-generic
     - linux-cloud-tools-generic
     - parallel
+    - whois
 
     - git
     - git-crypt
