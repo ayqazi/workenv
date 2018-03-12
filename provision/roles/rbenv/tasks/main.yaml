@@ -5,7 +5,8 @@
     dest: "{{ homedir }}/.rbenv"
     update: yes
     version: master
-  become: "{{ user_name }}"
+  become: yes
+  become_user: "{{ user_name }}"
 
 - name: 'Checkout/update ruby-build as rbenv plugin'
   git:
@@ -13,4 +14,5 @@
     dest: "{{ homedir }}/.rbenv/plugins/ruby-build"
     update: yes
     version: master
-  become: "{{ user_name }}"
+  become: yes
+  become_user: "{{ user_name }}"
