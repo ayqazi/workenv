@@ -1,0 +1,9 @@
+---
+- name: 'Checkout/update pyenv'
+  git:
+    repo: 'https://github.com/pyenv/pyenv.git'
+    dest: "{{ homedir }}/.pyenv"
+    update: yes
+    version: master
+  become: yes
+  become_user: "{{ user_name }}"
