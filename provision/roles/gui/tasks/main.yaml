@@ -3,7 +3,7 @@
   apt: { name: "{{ item }}", state: latest }
   with_items:
     - ubuntu-mate-desktop
-    - ccsm
+    - compizconfig-settings-manager
     - mate-desktop-environment
     - mate-desktop-environment-extras
     - fonts-dejavu-core
