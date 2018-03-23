@@ -4,6 +4,7 @@
   with_items:
     - 'https://cli-assets.heroku.com/apt/release.key'
     - 'https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key'
+    - 'https://swupdate.openvpn.net/repos/repo-public.gpg'
 
 - name: 'Add repos for latest development packages'
   apt_repository: { repo: "{{ item }}", mode: 644, state: present }
@@ -12,6 +13,7 @@
     - ppa:git-core/ppa
     - 'deb https://cli-assets.heroku.com/branches/stable/apt ./'
     - 'deb https://packages.cloudfoundry.org/debian stable main'
+    - "deb http://build.openvpn.net/debian/openvpn/stable {{ ubuntu_distribution }} main"
 
 - name: 'Accept licenses'
   debconf:
@@ -73,6 +75,7 @@
     - parallel
     - whois
     - clamav
+    - openvpn
 
     - git
     - git-crypt
