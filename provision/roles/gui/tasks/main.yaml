@@ -1,4 +1,17 @@
 ---
+- name: 'Add apt keys by URL for GUI packages'
+  apt_key: { url: "{{ item }}", state: present }
+  with_items:
+    - 'https://dl.google.com/linux/linux_signing_key.pub'
+
+- name: 'Add repos for latest GUI packages'
+  apt_repository: { repo: "{{ item }}", mode: 644, state: present }
+  with_items:
+    - 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+
+- name: 'Update apt cache (GUI packages)'
+  apt: { update_cache: yes }
+
 - name: 'Install GUI environments'
   apt: { name: "{{ item }}", state: latest }
   with_items:
@@ -13,18 +26,32 @@
 - name: 'Install tools and packages'
   apt: { name: "{{ item }}", state: latest }
   with_items:
-    - chromium-browser
     - parcellite
     - gimp
     - redshift
+    - google-chrome-stable
+
+- name: 'Comment out chrome-added package'
+  replace:
+    path: /etc/apt/sources.list.d/google-chrome.list
+    regexp: '^([^#].+)'
+    replace: '# \1'
+    backup: yes
 
 - name: 'Purge GUI packages'
   apt: { name: "{{ item }}", state: absent }
-  with_items:
-    - tilda
-    - thunderird
-    - xul-ext-gdata-provider
-    - xul-ext-lightning
+  with_items: "{{ packages_to_block }}"
+  tags: tmp
+
+- name: 'Stop above packages being installed'
+  template:
+    src: 'blocked-apt-preferences.j2'
+    dest: "/etc/apt/preferences.d/user-blocked__{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ packages_to_block }}"
+  tags: tmp
 
 - name: 'Update alternatives'
   alternatives:
@@ -33,8 +60,10 @@
     path: "{{ item[2] }}"
     priority: "{{ item[3] }}"
   with_nested: # STUPID Ansible defaults to flattening nested arrays if using with_items
-    - - [ 'x-www-browser', '/usr/bin/x-www-browser', '/usr/bin/chromium-browser', '1000' ]
-      - [ 'gnome-www-browser', '/usr/bin/gnome-www-browser', '/usr/bin/chromium-browser', '1000' ]
+    - - [ 'x-www-browser', '/usr/bin/x-www-browser', '/usr/bin/google-chrome', '1001' ]
+      - [ 'gnome-www-browser', '/usr/bin/gnome-www-browser', '/usr/bin/google-chrome', '1001' ]
 
-- name: 'Remove troublesome Python OpenSSL directory'
-  file: { name: '/usr/lib/python2.7/dist-packages/OpenSSL/', state: absent }
+- name: 'Remove troublesome files/directories'
+  file: { name: "{{ item }}", state: absent }
+  with_items:
+    - '/usr/lib/python2.7/dist-packages/OpenSSL/'

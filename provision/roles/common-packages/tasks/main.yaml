@@ -1,12 +1,12 @@
 ---
-- name: 'Add apt keys by URL'
+- name: 'Add apt keys by URL for common packages'
   apt_key: { url: "{{ item }}", state: present }
   with_items:
     - 'https://cli-assets.heroku.com/apt/release.key'
     - 'https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key'
     - 'https://swupdate.openvpn.net/repos/repo-public.gpg'
 
-- name: 'Add repos for latest development packages'
+- name: 'Add repos for latest common packages'
   apt_repository: { repo: "{{ item }}", mode: 644, state: present }
   with_items:
     - ppa:webupd8team/java

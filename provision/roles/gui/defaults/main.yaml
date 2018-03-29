@@ -1,0 +1,10 @@
+---
+packages_to_block:
+  - tilda
+  - thunderird
+  - xul-ext-gdata-provider
+  - xul-ext-lightning
+  - chromium-browser
+  - chromium-codecs-ffmpeg
+  - chromium-codecs-ffmpeg-extra
+  - chromium-browser-l10n
