@@ -19,7 +19,7 @@
     - { role: phantomjs, tags: phantomjs }
     - { role: scripts }
     - { role: system }
-    - { role: gui }
+    - { role: gui, tags: gui }
 
   tasks:
     - name: 'Remove unused packages'

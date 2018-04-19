@@ -41,17 +41,6 @@
 - name: 'Purge GUI packages'
   apt: { name: "{{ item }}", state: absent }
   with_items: "{{ packages_to_block }}"
-  tags: tmp
-
-- name: 'Stop above packages being installed'
-  template:
-    src: 'blocked-apt-preferences.j2'
-    dest: "/etc/apt/preferences.d/user-blocked__{{ item }}"
-    owner: root
-    group: root
-    mode: 0644
-  with_items: "{{ packages_to_block }}"
-  tags: tmp
 
 - name: 'Update alternatives'
   alternatives:
