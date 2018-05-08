@@ -7,3 +7,12 @@
     version: master
   become: yes
   become_user: "{{ user_name }}"
+
+- name: 'Checkout/update pyenv virtualenv plugin'
+  git:
+    repo: 'https://github.com/pyenv/pyenv-virtualenv.git'
+    dest: "{{ homedir }}/.pyenv/plugins/pyenv-virtualenv"
+    update: yes
+    version: master
+  become: yes
+  become_user: "{{ user_name }}"
