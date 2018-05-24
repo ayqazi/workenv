@@ -4,4 +4,4 @@ cd "$(dirname ${0})/.."
 
 set -x
 
-ansible-playbook -i localhost, -c local -l localhost vm.yaml "${@}"
+ansible-playbook -i invs/vm -c local -l localhost vm.yaml "${@}"
