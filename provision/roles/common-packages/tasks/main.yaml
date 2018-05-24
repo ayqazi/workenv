@@ -8,7 +8,6 @@
 - name: 'Add repos for latest common packages'
   apt_repository: { repo: "{{ item }}", mode: 644, state: present }
   with_items:
-    - ppa:webupd8team/java
     - ppa:git-core/ppa
     - "deb http://build.openvpn.net/debian/openvpn/stable {{ ubuntu_distribution }} main"
     - "{{ apt_repositories }}"
@@ -20,8 +19,8 @@
     value: true
     vtype: select
   with_items:
-    - shared/accepted-oracle-license-v1-1
     - msttcorefonts/accepted-mscorefonts-eula
+    - "{{ apt_licenses }}"
 
 - name: 'Update apt cache'
   apt: { update_cache: yes }
@@ -42,7 +41,6 @@
     - libxml2-dev
     - libxslt1-dev
     - libffi-dev
-    - openjdk-8-jdk
     - libyaml-dev
     - sqlite3
     - libsqlite3-dev

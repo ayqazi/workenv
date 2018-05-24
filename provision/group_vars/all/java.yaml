@@ -1,0 +1,11 @@
+---
+apt_repositories:
+    - ppa:webupd8team/java
+
+apt_licenses:
+  - shared/accepted-oracle-license-v1-1
+
+apt_packages:
+  # - oracle-java8-installer
+  - openjdk-8-jdk
+  - maven
