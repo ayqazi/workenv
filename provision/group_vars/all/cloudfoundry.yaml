@@ -1,0 +1,9 @@
+---
+apt_keys:
+  - 'https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key'
+
+apt_repositories:
+  - 'deb https://packages.cloudfoundry.org/debian stable main'
+
+apt_packages:
+  - cf-cli
