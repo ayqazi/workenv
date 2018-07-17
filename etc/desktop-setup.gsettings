@@ -94,7 +94,7 @@ org.mate.Marco.window-keybindings move-to-side-s 'disabled'
 org.mate.Marco.window-keybindings close '<Control><Super>x'
 org.mate.Marco.window-keybindings toggle-on-all-workspaces 'disabled'
 
-org.mate.Marco.general focus-mode 'click'
+org.mate.Marco.general focus-mode 'sloppy'
 org.mate.Marco.general mouse-button-modifier '<Super>'
 org.mate.Marco.general focus-new-windows 'strict'
 
