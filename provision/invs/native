@@ -1,4 +1,7 @@
 localhost
 
+[gui]
+localhost
+
 [native]
 localhost

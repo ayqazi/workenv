@@ -11,3 +11,5 @@ main_user_default_groups:
   - 'video'
   - 'lpadmin'
   - 'plugdev'
+
+emacs_package_name: emacs24-nox

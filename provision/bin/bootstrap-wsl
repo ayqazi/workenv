@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -euo pipefail
+
+cd "$(dirname ${0})/.."
+
+if [[ "$(id -u)" != 0 ]] ; then
+    echo "Must run as root"
+    exit 1
+fi
+
+main_user_home="$(getent passwd "${main_user_uid:-1000}" | cut -d: -f6)"
+
+if [[ -d "${main_user_home}" ]] ; then
+    if [[ "${FORCE:-}" != "1" ]] ; then
+        echo "Home dir already exists! Set FORCE env var to 1 to enable replacing it"
+        exit 2
+	else
+        rm -fr "${main_user_home}"
+    fi
+fi
+
+echo 'Installing foundation packages, and provisioning'
+bin/install-foundation.sh
+bin/playbook-wsl

@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: all
   become: true
   roles:
     - role: main-user
@@ -19,8 +19,14 @@
     - { role: phantomjs, tags: phantomjs }
     - { role: scripts }
     - { role: system }
-    - { role: gui, tags: gui }
 
+- hosts: gui
+  become: true
+  roles:
+  - { role: gui, tags: gui }
+
+- hosts: all
+  become: true
   tasks:
     - name: 'Remove unused packages'
       apt: { autoremove: yes }

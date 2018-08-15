@@ -52,8 +52,3 @@
   with_nested: # STUPID Ansible defaults to flattening nested arrays if using with_items
     - - [ 'x-www-browser', '/usr/bin/x-www-browser', '/usr/bin/google-chrome', '1001' ]
       - [ 'gnome-www-browser', '/usr/bin/gnome-www-browser', '/usr/bin/google-chrome', '1001' ]
-
-- name: 'Remove troublesome files/directories'
-  file: { name: "{{ item }}", state: absent }
-  with_items:
-    - '/usr/lib/python2.7/dist-packages/OpenSSL/'

@@ -75,7 +75,7 @@
 
     - git
     - git-crypt
-    - emacs24
+    - "{{ emacs_package_name }}"
     - emacs24-el
     - emacs-goodies-el
     - postgresql-client-9.5
@@ -87,6 +87,11 @@
   apt: { deb: "{{ item }}" }
   with_items: "{{ debs }}"
   tags: debs
+
+- name: 'Remove troublesome Python files/directories'
+  file: { name: "{{ item }}", state: absent }
+  with_items:
+  - '/usr/lib/python2.7/dist-packages/OpenSSL/'
 
 - name: 'Install some pip packages for Python 2'
   pip: { name: "{{ item }}", state: present }
