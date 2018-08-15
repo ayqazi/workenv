@@ -12,4 +12,6 @@ main_user_default_groups:
   - 'lpadmin'
   - 'plugdev'
 
+debs: []
+
 emacs_package_name: emacs24-nox

@@ -9,10 +9,17 @@
   become: true
   become_user: "{{ name }}"
 
+- name: 'Remove non-existent groups from list'
+  shell: 'for i in {{ (main_user_default_groups + main_user_extra_groups) | join(" ") }}; do grep "^${i}:" /etc/group &> /dev/null && echo $i; done | paste -sd, -'
+  args:
+    executable: /bin/bash
+  register: existing_groups_out
+  changed_when: false
+
 - name: 'Customize the user further'
   user:
     name: "{{ name }}"
-    groups: "{{ main_user_default_groups + main_user_extra_groups }}"
+    groups: "{{ existing_groups_out.stdout }}"
     append: true
     comment: "{{ comment }}"
     generate_ssh_key: true
