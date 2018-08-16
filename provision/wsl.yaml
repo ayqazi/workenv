@@ -1,2 +1,7 @@
 ---
 - import_playbook: 'all_types.yaml'
+
+- hosts: all
+  become: true
+  roles:
+    - { role: wsl-setup, tags: wsl-setup }
