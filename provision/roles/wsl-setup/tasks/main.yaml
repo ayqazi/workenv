@@ -6,3 +6,11 @@
     owner: "{{ main_user_name }}"
     group: "{{ main_user_name }}"
     mode: 0644
+
+- name: "Install /etc/wsl.conf"
+  template:
+    src: "wsl.conf.j2"
+    dest: "/etc/wsl.conf"
+    owner: root
+    group: root
+    mode: 0644
