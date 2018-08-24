@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+[[ ! -f /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe && ! -x /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe ]] && exit
+
 winuser="$(/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command '& {[System.Security.Principal.WindowsIdentity]::GetCurrent().Name}' | sed -e 's/\r/\n/g' | cut -d'\' -f2)"
 
 echo "{\"windows_username\": \"${winuser}\"}"
