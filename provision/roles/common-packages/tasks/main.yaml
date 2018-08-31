@@ -51,6 +51,8 @@
     - libpq-dev
 
     - schedtool
+    - zip
+    - unzip
     - pbzip2
     - pv
     - dstat
