@@ -1,2 +1,3 @@
 ---
+docker_ce_version: ''
 docker_compose_version: "1.18.0"

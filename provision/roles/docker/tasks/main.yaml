@@ -12,7 +12,7 @@
 
 - name: "Update apt and install Docker"
   apt:
-    name: "docker-ce"
+    name: "docker-ce{{ '' if docker_ce_version == '' else '=' + docker_ce_version }}"
     state: present
     update_cache: true
 
