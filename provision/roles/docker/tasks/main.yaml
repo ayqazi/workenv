@@ -10,11 +10,24 @@
     repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_distribution }} stable"
     state: present
 
+- name: "Stop Docker in case it is running"
+  service: { name: docker, state: stopped }
+  ignore_errors: true
+
+- name: "Delete PID file in case it does not automatically go away"
+  file: { name: "/var/run/docker-ssd.pid", state: absent }
+
 - name: "Update apt and install Docker"
   apt:
     name: "docker-ce{{ '' if docker_ce_version == '' else '=' + docker_ce_version }}"
     state: present
+    force: yes
     update_cache: true
+
+- name: "apt-mark hold docker version as an explicit version was specified"
+  command: apt-mark hold docker-ce
+  when: docker_ce_version != ''
+  ignore_errors: true
 
 - name: "Add main user to Docker group"
   user:
