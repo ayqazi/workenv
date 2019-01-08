@@ -1,16 +1,11 @@
 ---
 - name: 'Add apt keys by URL for common packages'
   apt_key: { url: "{{ item }}", state: present }
-  with_items:
-    - 'https://swupdate.openvpn.net/repos/repo-public.gpg'
-    - "{{ apt_keys }}"
+  loop: "{{ apt_keys | dictsort | map('last') | list }}"
 
 - name: 'Add repos for latest common packages'
   apt_repository: { repo: "{{ item }}", mode: 644, state: present }
-  with_items:
-    - ppa:git-core/ppa
-    - "deb http://build.openvpn.net/debian/openvpn/stable {{ ubuntu_distribution }} main"
-    - "{{ apt_repositories }}"
+  loop: "{{ apt_repositories | dictsort | map('last') | list }}"
 
 - name: 'Accept licenses'
   debconf:
@@ -18,9 +13,7 @@
     question: "{{ item }}"
     value: true
     vtype: select
-  with_items:
-    - msttcorefonts/accepted-mscorefonts-eula
-    - "{{ apt_licenses }}"
+  loop: "{{ apt_licenses | dictsort | map('last') | list }}"
 
 - name: 'Update apt cache'
   apt: { update_cache: yes }
@@ -75,15 +68,15 @@
     - clamav
     - openvpn
 
-    - git
-    - git-crypt
     - "{{ emacs_package_name }}"
     - emacs24-el
     - emacs-goodies-el
     - postgresql-client-9.5
     - postgresql-9.5
 
-    - "{{ apt_packages }}"
+- name: 'Install packages'
+  apt: { name: "{{ apt_packages | dictsort | map('last') | list }}", state: latest }
+  tags: tmp
 
 - name: 'Install debs not in repos'
   apt: { deb: "{{ item }}" }

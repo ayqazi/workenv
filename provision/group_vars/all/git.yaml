@@ -1,0 +1,6 @@
+apt_repositories:
+  git: 'ppa:git-core/ppa'
+
+apt_packages:
+  git: 'git'
+  gitcrypt: 'git-crypt'

@@ -15,3 +15,7 @@ main_user_default_groups:
 debs: []
 
 emacs_package_name: emacs24-nox
+
+apt_keys: {}
+apt_repositories: {}
+apt_packages: {}
