@@ -3,18 +3,19 @@
   become: true
   roles:
     - role: main-user
-      name: "{{ main_user_name }}"
-      uid: "{{ main_user_uid }}"
-      gid: "{{ main_user_gid }}"
-      homedir: "{{ main_user_homedir }}"
-      comment: "{{ main_user_comment }}"
+      vars:
+        name: "{{ main_user_name }}"
+        uid: "{{ main_user_uid }}"
+        gid: "{{ main_user_gid }}"
+        homedir: "{{ main_user_homedir }}"
+        comment: "{{ main_user_comment }}"
       tags: main-user
     - { role: base-packages, tags: base-packages }
     - { role: common-packages, tags: common-packages }
     - { role: dh-virtualenv, tags: dh-virtualenv }
     - { role: go, tags: go }
-    - { role: rbenv, user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}", tags: rbenv }
-    - { role: pyenv, user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}", tags: pyenv }
+    - { role: rbenv, vars: {user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}"}, tags: rbenv }
+    - { role: pyenv, vars: {user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}"}, tags: pyenv }
     - { role: docker, tags: docker }
     - { role: phantomjs, tags: phantomjs }
     - { role: scripts }

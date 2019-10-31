@@ -76,7 +76,6 @@
 
 - name: 'Install packages'
   apt: { name: "{{ apt_packages | dictsort | map('last') | list }}", state: latest }
-  tags: tmp
 
 - name: 'Install debs not in repos'
   apt: { deb: "{{ item }}" }
