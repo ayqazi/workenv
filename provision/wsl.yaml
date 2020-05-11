@@ -5,3 +5,4 @@
   become: true
   roles:
     - { role: wsl-setup, tags: wsl-setup }
+    - { role: wsl-hello-sudo, tags: wsl-hello-sudo }

@@ -1,0 +1,23 @@
+---
+- name: "Download wsl-hello-sudo package"
+  get_url:
+    url: "https://github.com/nullpo-head/WSL-Hello-sudo/releases/download/v{{ wsl_hello_sudo_version }}/release.tar.gz"
+    dest: "/tmp/wsl_hello_sudo.tar.gz"
+    owner: root
+    group: root
+    mode: 0644
+    checksum: "sha256:d2d315424bb3353b158d4752def7c713cd33b2fff893b4cc3a28e4e55133f2de"
+
+- name: "Make wsl-hello-sudo extraction dir"
+  file:
+    name: "/tmp/wsl_hello_sudo-{{ wsl_hello_sudo_version }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "Extract wsl-hello-sudo package"
+  unarchive:
+    src: "/tmp/wsl_hello_sudo.tar.gz"
+    dest: "/tmp/wsl_hello_sudo-{{ wsl_hello_sudo_version }}"
+    extra_opts: "--strip-components=1"
