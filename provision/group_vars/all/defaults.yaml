@@ -1,5 +1,5 @@
 ---
-ubuntu_distribution: xenial
+ubuntu_distribution: focal
 mirror_country_code: gb
 
 main_user_name: 'ayqazi'
@@ -14,7 +14,7 @@ main_user_default_groups:
 
 debs: []
 
-emacs_package_name: emacs24-nox
+emacs_package_name: emacs26-nox
 
 apt_keys: {}
 apt_repositories: {}

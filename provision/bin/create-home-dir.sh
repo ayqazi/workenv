@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/bash -ux
 
-set -u
+echo "Starting at $(+%F-%T)..." >> /var/log/create-home-dir.log
+exec > >(tee -ai /var/log/create-home-dir.log)
+exec 2>&1
 
 HOME="$(getent passwd $(id -u) | cut -d: -f6)"
 mygit() {

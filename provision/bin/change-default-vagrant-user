@@ -1,9 +1,7 @@
-#!/bin/bash
+#!/bin/bash -ex
 
-set -e
-
-echo "Starting..." > /var/log/change-default-user.log
-exec > >(tee -i /var/log/change-default-user.log)
+echo "Starting..." >> /var/log/change-default-user.log
+exec > >(tee -ai /var/log/change-default-user.log)
 exec 2>&1
 
 groupmod -n ayqazi vagrant

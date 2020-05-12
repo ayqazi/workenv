@@ -1,0 +1,4 @@
+---
+vagrant_version: '2.2.9'
+debs:
+  - 'https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.deb'

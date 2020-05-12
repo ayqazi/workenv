@@ -1,3 +1,0 @@
----
-# Enable below for Linux Docker running inside WSL
-# docker_ce_version: '17.09.0~ce-0~ubuntu'
