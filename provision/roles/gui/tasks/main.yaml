@@ -21,7 +21,8 @@
     - mate-desktop-environment-extras
     - fonts-dejavu-core
     - fonts-dejavu-extra
-    # - shutter
+    - xserver-xorg-input-synaptics
+    # - shutter # TODO
 
 - name: 'Install tools and packages'
   apt: { name: "{{ item }}", state: latest }
