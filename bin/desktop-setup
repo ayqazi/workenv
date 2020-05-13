@@ -33,17 +33,3 @@ with open(gsettings_file) as f:
             print("ERROR: error calling gsettings:\n", file=sys.stderr)
             print(stderr, file=sys.stderr)
             exit(3)
-
-dconf_file = open(os.path.dirname(os.path.abspath(__file__)) + '/../etc/desktop-setup.dconf')
-print('Loading dconf settings')
-proc = subprocess.Popen(['dconf', 'load', '/'], stdin=dconf_file)
-(stdout, stderr) = proc.communicate()
-if proc.wait() != 0:
-    print(stdout)
-    print("ERROR: error calling dconf:\n" + stderr, file=sys.stderr)
-    exit(4)
-
-touchpad_settings = os.path.expanduser("~/bin/touchpad-load-settings")
-if os.path.exists(touchpad_settings):
-    print("Loading touchpad settings")
-    subprocess.call([touchpad_settings])
