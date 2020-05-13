@@ -14,7 +14,7 @@ main_user_default_groups:
 
 debs: []
 
-emacs_package_name: emacs26-nox
+emacs_package_name: emacs-nox
 
 apt_keys: {}
 apt_repositories: {}

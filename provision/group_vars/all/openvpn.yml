@@ -1,6 +1,7 @@
 ---
-apt_keys:
-  openvpn: 'https://swupdate.openvpn.net/repos/repo-public.gpg'
-
-apt_repositories:
-  openvpn: 'deb http://build.openvpn.net/debian/openvpn/stable {{ ubuntu_distribution }} main'
+#TODO figure this out, see if it is even necessary
+#apt_keys:
+#  openvpn: 'https://swupdate.openvpn.net/repos/repo-public.gpg'
+#
+#apt_repositories:
+#  openvpn: 'deb http://build.openvpn.net/debian/openvpn/stable {{ ubuntu_distribution }} main'

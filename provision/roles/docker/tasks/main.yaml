@@ -5,9 +5,10 @@
     id: "9DC858229FC7DD38854AE2D88D81803C0EBFCD88"
     state: present
 
+# TODO Move distro name in repo back to '{{ ubuntu_distribution }}' once they support it
 - name: "Add Docker repo"
   apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_distribution }} stable"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan stable"
     state: present
 
 - name: "Stop Docker in case it is running"

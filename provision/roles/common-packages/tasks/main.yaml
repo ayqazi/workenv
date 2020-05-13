@@ -11,7 +11,7 @@
   debconf:
     name: '*'
     question: "{{ item }}"
-    value: true
+    value: 'true'
     vtype: select
   loop: "{{ apt_licenses | dictsort | map('last') | list }}"
 
@@ -20,7 +20,7 @@
 
 - name: 'Install commonly used requirements for building other packages'
   apt: { name: "{{ item }}", state: latest }
-  with_items:
+  loop:
     - build-essential
     - bison
     - pkg-config
@@ -38,7 +38,7 @@
     - sqlite3
     - libsqlite3-dev
     - libgdbm-dev
-    - libncurses5-dev
+    - libncurses-dev
     - libmath-round-perl # needed by ayqpw
     - libbz2-dev
     - libpq-dev
@@ -54,9 +54,7 @@
     - netcat-traditional
     - openssh-client
     - openssh-server
-    - openssh-blacklist-extra
     - bash-completion
-    - python-wheel
     - python3
     - python3-venv
     - python3-pip
@@ -69,32 +67,19 @@
     - openvpn
 
     - "{{ emacs_package_name }}"
-    - emacs24-el
+    - emacs-el
     - emacs-goodies-el
-    - postgresql-client-9.5
-    - postgresql-9.5
 
 - name: 'Install packages'
   apt: { name: "{{ apt_packages | dictsort | map('last') | list }}", state: latest }
 
 - name: 'Install debs not in repos'
   apt: { deb: "{{ item }}" }
-  with_items: "{{ debs }}"
+  loop: "{{ debs }}"
   tags: debs
-
-- name: 'Remove troublesome Python files/directories'
-  file: { name: "{{ item }}", state: absent }
-  with_items:
-  - '/usr/lib/python2.7/dist-packages/OpenSSL/'
-
-- name: 'Install some pip packages for Python 2'
-  pip: { name: "{{ item }}", state: present }
-  with_items:
-    - pyOpenSSL
-    - wheel
 
 - name: 'Install some pip packages for Python 3'
   pip: { name: "{{ item }}", state: present, executable: /usr/bin/pip3 }
-  with_items:
+  loop:
     - pyOpenSSL
     - wheel

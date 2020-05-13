@@ -1,12 +1,12 @@
 ---
 - name: 'Add apt keys by URL for GUI packages'
   apt_key: { url: "{{ item }}", state: present }
-  with_items:
+  loop:
     - 'https://dl.google.com/linux/linux_signing_key.pub'
 
 - name: 'Add repos for latest GUI packages'
   apt_repository: { repo: "{{ item }}", mode: 644, state: present }
-  with_items:
+  loop:
     - 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
 
 - name: 'Update apt cache (GUI packages)'
@@ -14,19 +14,18 @@
 
 - name: 'Install GUI environments and packages'
   apt: { name: "{{ item }}", state: latest }
-  with_items:
+  loop:
     - ubuntu-mate-desktop
     - compizconfig-settings-manager
     - mate-desktop-environment
     - mate-desktop-environment-extras
     - fonts-dejavu-core
     - fonts-dejavu-extra
-    - i3
-    - shutter
+    # - shutter
 
 - name: 'Install tools and packages'
   apt: { name: "{{ item }}", state: latest }
-  with_items:
+  loop:
     - parcellite
     - gimp
     - redshift
@@ -41,7 +40,7 @@
 
 - name: 'Purge GUI packages'
   apt: { name: "{{ item }}", state: absent }
-  with_items: "{{ packages_to_block }}"
+  loop: "{{ packages_to_block }}"
 
 - name: 'Update alternatives'
   alternatives:
@@ -49,6 +48,6 @@
     link: "{{ item[1] }}"
     path: "{{ item[2] }}"
     priority: "{{ item[3] }}"
-  with_nested: # STUPID Ansible defaults to flattening nested arrays if using with_items
-    - - [ 'x-www-browser', '/usr/bin/x-www-browser', '/usr/bin/google-chrome', '1001' ]
-      - [ 'gnome-www-browser', '/usr/bin/gnome-www-browser', '/usr/bin/google-chrome', '1001' ]
+  loop:
+    - [ 'x-www-browser', '/usr/bin/x-www-browser', '/usr/bin/google-chrome', '1001' ]
+    - [ 'gnome-www-browser', '/usr/bin/gnome-www-browser', '/usr/bin/google-chrome', '1001' ]
