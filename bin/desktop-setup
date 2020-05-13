@@ -33,3 +33,8 @@ with open(gsettings_file) as f:
             print("ERROR: error calling gsettings:\n", file=sys.stderr)
             print(stderr, file=sys.stderr)
             exit(3)
+
+touchpad_settings = os.path.expanduser("~/bin/touchpad-load-settings")
+if os.path.exists(touchpad_settings):
+    print("Loading touchpad settings")
+    subprocess.call([touchpad_settings])
