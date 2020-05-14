@@ -18,7 +18,7 @@
     - { role: docker, tags: docker }
     - { role: phantomjs, tags: phantomjs }
     - { role: scripts }
-    - { role: system }
+    - { role: system, tags: system }
 
 - hosts: gui
   become: true

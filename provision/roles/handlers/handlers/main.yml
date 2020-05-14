@@ -1,0 +1,11 @@
+---
+- name: netplan-generate
+  command: netplan generate
+
+- name: netplan-apply
+  command: netplan apply
+
+- name: reboot-warning
+  fail:
+    msg: "REBOOT REQUIRED"
+  ignore_errors: true
