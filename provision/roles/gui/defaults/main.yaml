@@ -8,3 +8,4 @@ packages_to_block:
   - chromium-codecs-ffmpeg
   - chromium-codecs-ffmpeg-extra
   - chromium-browser-l10n
+  - dunst

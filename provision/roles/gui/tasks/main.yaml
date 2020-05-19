@@ -6,43 +6,46 @@
 
 - name: 'Add repos for latest GUI packages'
   apt_repository: { repo: "{{ item }}", mode: 644, state: present }
-  loop:
-    - 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+  loop: []
+  # - 'deb xxxxxxx'
+
+- name: 'Google Chrome insists on its apt sources.list file being EXACTLY like this'
+  template:
+    src: 'apt-google-chrome-list.j2'
+    dest: '/etc/apt/sources.list.d/google-chrome.list'
+    owner: root
+    group: root
+    mode: 0644
 
 - name: 'Update apt cache (GUI packages)'
   apt: { update_cache: yes }
+  changed_when: false
 
 - name: 'Install GUI environments and packages'
-  apt: { name: "{{ item }}", state: latest }
-  loop:
-    - ubuntu-mate-desktop
-    - compizconfig-settings-manager
-    - mate-desktop-environment
-    - mate-desktop-environment-extras
-    - fonts-dejavu-core
-    - fonts-dejavu-extra
-    - xserver-xorg-input-synaptics
-    # - shutter # TODO
+  apt:
+    name:
+      - ubuntu-mate-desktop
+      - compizconfig-settings-manager
+      - mate-desktop-environment
+      - mate-desktop-environment-extras
+      - fonts-dejavu-core
+      - fonts-dejavu-extra
+      - xserver-xorg-input-synaptics
+      # - shutter # TODO
+    state: latest
 
 - name: 'Install tools and packages'
-  apt: { name: "{{ item }}", state: latest }
-  loop:
-    - parcellite
-    - xdotool
-    - gimp
-    - redshift
-    - google-chrome-stable
-
-- name: 'Comment out chrome-added package'
-  replace:
-    path: /etc/apt/sources.list.d/google-chrome.list
-    regexp: '^([^#].+)'
-    replace: '# \1'
-    backup: yes
+  apt:
+    name:
+      - parcellite
+      - xdotool
+      - gimp
+      - redshift
+      - google-chrome-stable
+    state: latest
 
 - name: 'Purge GUI packages'
-  apt: { name: "{{ item }}", state: absent }
-  loop: "{{ packages_to_block }}"
+  apt: { name: "{{ packages_to_block }}", state: absent }
 
 - name: 'Update alternatives'
   alternatives:
