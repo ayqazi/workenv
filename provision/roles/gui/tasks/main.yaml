@@ -28,6 +28,8 @@
       - compizconfig-settings-manager
       - mate-desktop-environment
       - mate-desktop-environment-extras
+      - libmetacity1
+      - metacity-common
       - fonts-dejavu-core
       - fonts-dejavu-extra
       - xserver-xorg-input-synaptics
