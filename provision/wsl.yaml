@@ -4,5 +4,5 @@
 - hosts: all
   become: true
   roles:
-    - { role: wsl-setup, tags: wsl-setup }
-    - { role: wsl-hello-sudo, tags: wsl-hello-sudo }
+    - { role: wsl-setup, tags: [wsl, wsl-setup]  }
+    - { role: wsl-hello-sudo, tags: [wsl, wsl-hello-sudo] }
