@@ -1,8 +1,0 @@
-if [[ -f /mnt/c/opt/ssh-agent-wsl/ssh-agent-wsl && -x /mnt/c/opt/ssh-agent-wsl/ssh-agent-wsl ]] ; then
-    chmod +x /mnt/c/opt/ssh-agent-wsl/ssh-agent-wsl /mnt/c/opt/ssh-agent-wsl/pipe-connector.exe
-    eval "$(/mnt/c/opt/ssh-agent-wsl/ssh-agent-wsl -rq)"
-fi
-
-export INSIDE_WSL=1
-
-true
