@@ -32,8 +32,10 @@
       - metacity-common
       - fonts-dejavu-core
       - fonts-dejavu-extra
+      - ttf-mscorefonts-installer
+      - fonts-roboto-hinted
       - xserver-xorg-input-synaptics
-      # - shutter # TODO
+      - flameshot
     state: latest
 
 - name: 'Install tools and packages'
