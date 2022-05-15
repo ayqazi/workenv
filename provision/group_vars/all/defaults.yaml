@@ -19,3 +19,4 @@ emacs_package_name: emacs-nox
 apt_keys: {}
 apt_repositories: {}
 apt_packages: {}
+apt_licenses: {}

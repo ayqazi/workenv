@@ -65,6 +65,7 @@
     - whois
     - clamav
     - openvpn
+    - socat
 
     - "{{ emacs_package_name }}"
     - emacs-el
@@ -72,6 +73,7 @@
 
 - name: 'Install packages'
   apt: { name: "{{ apt_packages | dictsort | map('last') | list }}", state: latest }
+  tags: packages
 
 - name: 'Install debs not in repos'
   apt: { deb: "{{ item }}" }

@@ -1,0 +1,5 @@
+apt_packages:
+  cairo: 'libcairo2'
+  pango: 'libpango1.0-0'
+  gbm: 'libgbm1'
+  libxbcommon: 'libxkbcommon0'
