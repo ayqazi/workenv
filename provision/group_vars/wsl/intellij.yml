@@ -3,3 +3,5 @@ apt_packages:
   pango: 'libpango1.0-0'
   gbm: 'libgbm1'
   libxbcommon: 'libxkbcommon0'
+  libsecret: 'libsecret-1-0'
+  gnome-keyring: 'gnome-keyring'
