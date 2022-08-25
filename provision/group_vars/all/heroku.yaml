@@ -1,9 +1,0 @@
----
-apt_keys:
-  heroku: 'https://cli-assets.heroku.com/apt/release.key'
-
-apt_repositories:
-  herkou: 'deb https://cli-assets.heroku.com/branches/stable/apt ./'
-
-apt_packages:
-  heroku: heroku
