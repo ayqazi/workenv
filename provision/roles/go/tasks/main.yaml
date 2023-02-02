@@ -7,12 +7,11 @@
 
 - name: 'Download Go binary'
   get_url:
-    url: "https://redirector.gvt1.com/edgedl/go/go{{ go_version }}.linux-amd64.tar.gz"
+    url: "https://go.dev/dl/go{{ go_version }}.linux-amd64.tar.gz"
     dest: "/tmp/go{{ go_version }}.linux-amd64.tar.gz"
     owner: root
     group: root
     mode: 0644
-    checksum: "{{ go_download_checksums[go_version] }}"
   when: checkversion.rc != 0
 
 - name: 'Delete existing directory'
@@ -28,23 +27,6 @@
     creates: '/usr/local/go'
   when: checkversion.rc != 0
 
-- name: 'Get version of golang/dep already installed'
-  shell: |
-    /usr/local/go/dep version | awk -F: '/^ version/ {gsub(/ /, "", $0); gsub(/^v/, "", $2); print $2}'
-  register: checkversion
-  ignore_errors: true
-  changed_when: false
-
-- name: 'Download Go dep binary'
-  get_url:
-    url: "https://github.com/golang/dep/releases/download/v{{ go_dep_version }}/dep-linux-amd64"
-    dest: "/usr/local/go/bin/dep"
-    owner: root
-    group: root
-    mode: 0755
-    checksum: "{{ go_dep_download_checksums[go_dep_version] }}"
-  when: checkversion.rc != 0 or checkversion.stdout != go_dep_version
-
 - name: 'Symlink executables into /usr/local/bin'
   file:
     src: "/usr/local/go/bin/{{ item }}"
@@ -55,6 +37,4 @@
     mode: 0755
   with_items:
     - go
-    - godoc
     - gofmt
-    - dep
