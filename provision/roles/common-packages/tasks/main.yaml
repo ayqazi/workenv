@@ -43,6 +43,9 @@
     - libbz2-dev
     - libpq-dev
 
+    - gpg
+    - gnupg
+
     - schedtool
     - zip
     - unzip
