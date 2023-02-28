@@ -1,0 +1,8 @@
+apt_keys:
+ github_cli: 'https://cli.github.com/packages/githubcli-archive-keyring.gpg'
+
+apt_repositories:
+ github_cli: 'deb https://cli.github.com/packages stable main'
+
+apt_packages:
+ gh: gh
