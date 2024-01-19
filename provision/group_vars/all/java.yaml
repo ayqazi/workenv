@@ -1,4 +1,0 @@
----
-apt_packages:
-  openjdk: openjdk-11-jdk
-  maven: maven
