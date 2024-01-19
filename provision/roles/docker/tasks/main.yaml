@@ -8,7 +8,7 @@
 # TODO Move distro name in repo back to '{{ ubuntu_distribution }}' once they support it
 - name: "Add Docker repo"
   apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan stable"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"
     state: present
 
 - name: "Stop Docker in case it is running"
