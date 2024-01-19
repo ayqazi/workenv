@@ -3,4 +3,4 @@
   apt: { name: "{{ item }}", state: latest }
   with_items:
     - debconf-utils         # Diagnostics via debconf-get-selections
-    - python-pycurl         # Needed by Ansible for URL fetching
+    - python3-pycurl        # Needed by Ansible for URL fetching

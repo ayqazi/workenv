@@ -70,10 +70,6 @@
     - openvpn
     - socat
 
-    - "{{ emacs_package_name }}"
-    - emacs-el
-    - emacs-goodies-el
-
 - name: 'Install packages'
   apt: { name: "{{ apt_packages | dictsort | map('last') | list }}", state: latest }
   tags: packages

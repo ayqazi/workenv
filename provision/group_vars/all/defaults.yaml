@@ -1,5 +1,5 @@
 ---
-ubuntu_distribution: focal
+ubuntu_distribution: jammy
 mirror_country_code: gb
 
 main_user_name: 'ayqazi'
@@ -13,8 +13,6 @@ main_user_default_groups:
   - 'plugdev'
 
 debs: []
-
-emacs_package_name: emacs-nox
 
 apt_keys: {}
 apt_repositories: {}
