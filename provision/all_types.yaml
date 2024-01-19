@@ -12,7 +12,6 @@
       tags: main-user
     - { role: base-packages, tags: base-packages }
     - { role: common-packages, tags: common-packages }
-    - { role: go, tags: go }
     - { role: rbenv, vars: {user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}"}, tags: rbenv }
     - { role: pyenv, vars: {user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}"}, tags: pyenv }
     - { role: docker, tags: docker }
