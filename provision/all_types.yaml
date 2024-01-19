@@ -16,8 +16,6 @@
     - { role: rbenv, vars: {user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}"}, tags: rbenv }
     - { role: pyenv, vars: {user_name: "{{ main_user_name }}", homedir: "{{ main_user_homedir }}"}, tags: pyenv }
     - { role: docker, tags: docker }
-    - { role: phantomjs, tags: phantomjs }
-    - { role: scripts }
     - { role: system, tags: system }
 
 - hosts: gui

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -ue
-
-dmidecode -s system-product-name | sed -e 's/.*/\L&/' -e 's/ [ ]*/-/g'
