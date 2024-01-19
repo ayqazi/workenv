@@ -1,14 +1,4 @@
 ---
-- name: 'Install sudoers file'
-  template:
-    src: 'sudoers.j2'
-    dest: '/etc/sudoers'
-    owner: root
-    group: root
-    mode: 0440
-    validate: '/usr/sbin/visudo -csf %s'
-  tags: sudoers
-
 - name: 'Bump inotify limit (applied on reboot)'
   copy:
     content: "fs.inotify.max_user_watches = {{ system_inotify_max_user_watches }}\n"
