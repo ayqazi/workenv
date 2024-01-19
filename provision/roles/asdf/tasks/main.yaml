@@ -1,0 +1,9 @@
+---
+- name: 'Checkout/update asdf'
+  git:
+    repo: 'https://github.com/asdf-vm/asdf.git'
+    dest: "{{ homedir }}/.asdf"
+    update: yes
+    version: "v0.14.0"
+  become: yes
+  become_user: "{{ user_name }}"
